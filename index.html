@@ -4,41 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThermoPeak — Термоси для пригод</title>
+
+    <!-- =========================================================================
+         1. ЗОВНІШНІ СТИЛІ (External CSS)
+         Підключення зовнішнього файлу стилів style.css через тег <link>
+         ========================================================================= -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- =========================================================================
+         2. ВНУТРІШНІ СТИЛІ (Internal / Embedded CSS)
+         Стилі, розташовані безпосередньо у тегу <style> всередині секції <head>
+         ========================================================================= -->
     <style>
-        /* Modern Design Variables */
-        :root {
-            --primary: #1e3f20;
-            --primary-light: #2d5a30;
-            --accent: #d97706;
-            --bg: #f4f6f4;
-            --card-bg: #ffffff;
-            --text: #1f2937;
-            --text-muted: #4b5563;
-            --border: #e5e7eb;
-        }
-
-        /* Base styles */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container {
-            max-width: 650px;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border);
-        }
-
-        /* Typography & Header */
+        /* Шапка сайту */
         header {
             text-align: center;
             margin-bottom: 40px;
@@ -49,7 +27,6 @@
             font-size: 2.5rem;
             margin: 0 0 10px 0;
             font-weight: 800;
-            letter-spacing: -0.025em;
         }
 
         h2 {
@@ -69,7 +46,7 @@
             padding-bottom: 8px;
         }
 
-        /* Images */
+        /* Зображення та анімація */
         .image-wrapper {
             overflow: hidden;
             border-radius: 16px;
@@ -88,7 +65,7 @@
             transform: scale(1.03);
         }
 
-        /* Feature specs block */
+        /* Блок характеристик */
         .specs {
             background-color: var(--bg);
             padding: 20px;
@@ -101,15 +78,7 @@
             margin: 8px 0;
         }
 
-        /* Separators */
-        hr {
-            border: 0;
-            height: 1px;
-            background: var(--border);
-            margin: 35px 0;
-        }
-
-        /* Footer */
+        /* Підвал */
         footer {
             text-align: center;
             color: var(--text-muted);
@@ -127,25 +96,28 @@
     <div class="container">
         <!-- Розділ 1: Шапка сайту -->
         <header>
-            <h1>ThermoPeak</h1>
+            <!-- 3. ВБУДОВАНИЙ / ІНЛАЙН СТИЛЬ (Inline CSS): атрибут style="..." на конкретному елементі -->
+            <h1 style="letter-spacing: -0.025em; text-transform: uppercase;">ThermoPeak</h1>
             <h2>Створено для пригод, збережено з ідеальною температурою.</h2>
         </header>
         
         <hr>
     
         <!-- Розділ 2: Головний блок товару (Hero) -->
-        <h3>Представляємо ThermoPeak Explorer 1000 мл</h3>
+        <!-- Приклад інлайн-стилю для оновлення кольору нижньої межі заголовка -->
+        <h3 style="border-bottom-color: var(--accent);">Представляємо ThermoPeak Explorer 1000 мл</h3>
         
         <div class="image-wrapper">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80" alt="Термос ThermoPeak Explorer з нержавіючої сталі" width="400">
         </div>
     
-        <p>
-            Підкорюєте гірські вершини чи їдете на роботу в морозний ранок — <strong>ThermoPeak Explorer</strong> збереже ваші напої <b>гарячими до 24 годин</b> або <i>крижаними до 48 годин</i>.
+        <!-- Приклад інлайн-стилю для виділення картки опису -->
+        <p style="background-color: rgba(45, 90, 48, 0.05); padding: 15px; border-radius: 10px; font-size: 1.05rem;">
+            Підкорюєте гірські вершини чи їдете на роботу в морозний ранок — <strong style="color: var(--primary-light);">ThermoPeak Explorer</strong> збереже ваші напої <b style="color: var(--accent);">гарячими до 24 годин</b> або <i>крижаними до 48 годин</i>.
         </p>
     
         <div class="specs">
-            <p><b>Збереження тепла:</b> <i>24 години гаряче / 48 годин холодне</i></p>
+            <p><b>Збереження тепла:</b> <i style="color: var(--primary-light);">24 години гаряче / 48 годин холодне</i></p>
             <p><strong>Матеріал:</strong> Харчова нержавіюча сталь 18/8 (без BPA)</p>
             <p><b>Об'єм:</b> 1000 мл (1 літр)</p>
             <p><strong>Гарантія:</strong> 5 років надійної служби</p>
@@ -158,7 +130,8 @@
             Завдяки технології <b>подвійної вакуумної ізоляції</b> корпус термоса не нагрівається зовні та не утворює конденсату. Кришка оснащена герметичним силіконовим ущільнювачем, тому термос <strong>на 100% захищений від протікання</strong> у рюкзаку.
         </p>
     
-        <p>
+        <!-- Приклад інлайн-стилю для цитати / додаткової примітки -->
+        <p style="border-left: 3px solid var(--primary-light); padding-left: 12px; font-style: italic;">
             Обираючи багаторазовий термос ThermoPeak, ви дбаєте про довкілля та відмовляєтеся від одноразового пластику.
         </p>
     
@@ -166,7 +139,7 @@
     
         <!-- Розділ 4: Підвал сайту -->
         <footer>
-            <small>
+            <small style="opacity: 0.85;">
                 &copy; 2026 ThermoPeak Outdoors Inc. Усі права захищено.<br>
                 <i>Створено для дослідників, збудовано на віки.</i>
             </small>
