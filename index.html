@@ -7,19 +7,19 @@
 
     <!-- =========================================================================
          1. ЗОВНІШНІ СТИЛІ (External CSS)
-         Підключення зовнішнього файлу стилів style.css через тег <link>
+         Підключення style.css (містить скидання, базову розмітку та 3 типи стилів/тем)
          ========================================================================= -->
     <link rel="stylesheet" href="style.css">
 
     <!-- =========================================================================
          2. ВНУТРІШНІ СТИЛІ (Internal / Embedded CSS)
-         Стилі, розташовані безпосередньо у тегу <style> всередині секції <head>
+         Стилі компонентів всередині тегу <style> у <head>
          ========================================================================= -->
     <style>
         /* Шапка сайту */
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         h1 {
@@ -27,6 +27,7 @@
             font-size: 2.5rem;
             margin: 0 0 10px 0;
             font-weight: 800;
+            transition: color 0.3s ease;
         }
 
         h2 {
@@ -34,6 +35,7 @@
             font-size: 1.1rem;
             font-weight: 400;
             margin: 0;
+            transition: color 0.3s ease;
         }
 
         h3 {
@@ -42,8 +44,9 @@
             margin-top: 30px;
             margin-bottom: 15px;
             font-weight: 700;
-            border-bottom: 2px solid var(--bg);
+            border-bottom: 2px solid var(--border);
             padding-bottom: 8px;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
 
         /* Зображення та анімація */
@@ -72,6 +75,7 @@
             border-radius: 12px;
             border-left: 4px solid var(--accent);
             margin: 20px 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .specs p {
@@ -83,6 +87,7 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
         footer small {
@@ -91,54 +96,64 @@
         }
     </style>
 </head>
-<body>
+<body class="theme-forest">
 
     <div class="container">
+        <!-- Блок перемикача 3 типів стилів у style.css -->
+        <div class="theme-switcher">
+            <button class="theme-btn active" onclick="setTheme('theme-forest', this)">🌲 Еко-Зелений</button>
+            <button class="theme-btn" onclick="setTheme('theme-ocean', this)">🌊 Альпійський Синій</button>
+            <button class="theme-btn" onclick="setTheme('theme-dark', this)">🌙 Темний</button>
+        </div>
+
         <!-- Розділ 1: Шапка сайту -->
         <header>
-            <!-- 3. ВБУДОВАНИЙ / ІНЛАЙН СТИЛЬ (Inline CSS): атрибут style="..." на конкретному елементі -->
+            <!-- 3. ВБУДОВАНИЙ / ІНЛАЙН СТИЛЬ (Inline CSS): атрибут style="..." -->
             <h1 style="letter-spacing: -0.025em; text-transform: uppercase;">ThermoPeak</h1>
             <h2>Створено для пригод, збережено з ідеальною температурою.</h2>
         </header>
         
         <hr>
-    
-        <!-- Розділ 2: Головний блок товару (Hero) -->
-        <!-- Приклад інлайн-стилю для оновлення кольору нижньої межі заголовка -->
-        <h3 style="border-bottom-color: var(--accent);">Представляємо ThermoPeak Explorer 1000 мл</h3>
+
+        <main>
+            <!-- Розділ 2: Головний блок товару (Hero) -->
+            <!-- Інлайн-стиль: колір нижньої межі заголовка -->
+            <h3 style="border-bottom-color: var(--accent);">Представляємо ThermoPeak Explorer 1000 мл</h3>
+            
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80" alt="Термос ThermoPeak Explorer з нержавіючої сталі" width="400">
+            </div>
         
-        <div class="image-wrapper">
-            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80" alt="Термос ThermoPeak Explorer з нержавіючої сталі" width="400">
-        </div>
-    
-        <!-- Приклад інлайн-стилю для виділення картки опису -->
-        <p style="background-color: rgba(45, 90, 48, 0.05); padding: 15px; border-radius: 10px; font-size: 1.05rem;">
-            Підкорюєте гірські вершини чи їдете на роботу в морозний ранок — <strong style="color: var(--primary-light);">ThermoPeak Explorer</strong> збереже ваші напої <b style="color: var(--accent);">гарячими до 24 годин</b> або <i>крижаними до 48 годин</i>.
-        </p>
-    
-        <div class="specs">
-            <p><b>Збереження тепла:</b> <i style="color: var(--primary-light);">24 години гаряче / 48 годин холодне</i></p>
-            <p><strong>Матеріал:</strong> Харчова нержавіюча сталь 18/8 (без BPA)</p>
-            <p><b>Об'єм:</b> 1000 мл (1 літр)</p>
-            <p><strong>Гарантія:</strong> 5 років надійної служби</p>
-        </div>
-    
-        <!-- Розділ 3: Переваги -->
-        <h3>Чому обирають ThermoPeak?</h3>
-    
-        <p>
-            Завдяки технології <b>подвійної вакуумної ізоляції</b> корпус термоса не нагрівається зовні та не утворює конденсату. Кришка оснащена герметичним силіконовим ущільнювачем, тому термос <strong>на 100% захищений від протікання</strong> у рюкзаку.
-        </p>
-    
-        <!-- Приклад інлайн-стилю для цитати / додаткової примітки -->
-        <p style="border-left: 3px solid var(--primary-light); padding-left: 12px; font-style: italic;">
-            Обираючи багаторазовий термос ThermoPeak, ви дбаєте про довкілля та відмовляєтеся від одноразового пластику.
-        </p>
-    
+            <!-- Інлайн-стиль: виділений акцентний параграф-картка -->
+            <p style="background-color: rgba(125, 125, 125, 0.08); padding: 15px; border-radius: 10px; font-size: 1.05rem;">
+                Підкорюєте гірські вершини чи їдете на роботу в морозний ранок — <strong style="color: var(--primary-light);">ThermoPeak Explorer</strong> збереже ваші напої <b style="color: var(--accent);">гарячими до 24 годин</b> або <i style="color: var(--primary-light);">крижаними до 48 годин</i>.
+            </p>
+        
+            <div class="specs">
+                <p><b>Збереження тепла:</b> <i style="color: var(--primary-light);">24 години гаряче / 48 годин холодне</i></p>
+                <p><strong>Матеріал:</strong> Харчова нержавіюча сталь 18/8 (без BPA)</p>
+                <p><b>Об'єм:</b> 1000 мл (1 літр)</p>
+                <p><strong>Гарантія:</strong> 5 років надійної служби</p>
+            </div>
+        
+            <!-- Розділ 3: Переваги -->
+            <h3>Чому обирають ThermoPeak?</h3>
+        
+            <p>
+                Завдяки технології <b>подвійної вакуумної ізоляції</b> корпус термоса не нагрівається зовні та не утворює конденсату. Кришка оснащена герметичним силіконовим ущільнювачем, тому термос <strong>на 100% захищений від протікання</strong> у рюкзаку.
+            </p>
+        
+            <!-- Інлайн-стиль: цитата з лівою акцентною рамкою -->
+            <p style="border-left: 3px solid var(--primary-light); padding-left: 12px; font-style: italic;">
+                Обираючи багаторазовий термос ThermoPeak, ви дбаєте про довкілля та відмовляєтеся від одноразового пластику.
+            </p>
+        </main>
+
         <hr>
-    
+
         <!-- Розділ 4: Підвал сайту -->
         <footer>
+            <!-- Інлайн-стиль: налаштування прозорості підвалу -->
             <small style="opacity: 0.85;">
                 &copy; 2026 ThermoPeak Outdoors Inc. Усі права захищено.<br>
                 <i>Створено для дослідників, збудовано на віки.</i>
@@ -146,5 +161,13 @@
         </footer>
     </div>
 
+    <!-- Скрипт перемикання 3 типів стилів з style.css -->
+    <script>
+        function setTheme(themeName, btnElement) {
+            document.body.className = themeName;
+            document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+        }
+    </script>
 </body>
 </html>
